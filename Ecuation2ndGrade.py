@@ -64,7 +64,7 @@ while True:
                     else:
                         print('The answers are ' + str(fractions.Fraction(sol1)) + ' and ' + str(fractions.Fraction(sol2)) + '.')
                 else:
-                    print('The answers are ' + str(z) + ' + square root of ' + str(n) + '/' + str(y) + ' and ' + str(z) + ' - square root of ' + str(n) + '/' + str(y) +'.')
+                    print('The answers are (' + str(z) + ' + √' + str(n) + ')/' + str(y) + ' and (' + str(z) + ' - √' + str(n) + ')/' + str(y) +'.')
             
             
     except ValueError:
