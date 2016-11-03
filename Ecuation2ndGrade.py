@@ -1,15 +1,6 @@
 import math
+import fractions
 
-def intdetector(x1):
-    y1 = int(x1)
-
-    z1 = x1 / y1
-
-    if z1 == 1:
-        return(True)
-    else:
-        return(False)
-    
 while True:
     try:
         a = input('a: ')
@@ -25,42 +16,57 @@ while True:
             print('Exiting...')
             break
 
-        a = int(a)
-        b = int(b)
-        c = int(c)
-            
-        x = (-4) * a * c
-        y = 2 * a
-        z = (-1) * b
-        u = b ** 2
-        n = u + x
-        m = math.sqrt(n)
-
-        d = z + m
-        f = z - m
-
-        sol1 = d / y
-        sol2 = f / y
-
-        if intdetector(m):
-            if sol1 == sol2:
-                if intdetector(sol1):
-                    print('The answer is double ' + str(int(sol1)) + '.')
-                else:
-                    print('The answer is double ' + str(int(d)) + '/' + str(int(y) + '.'))
-            else:
-                if intdetector(sol1):
-                    if intdetector(sol2):
-                        print('The answers are ' + str(int(sol1)) + ' and ' + str(int(sol2)) + '.')
-                    else:
-                        print('The answers are ' + str(int(sol1)) + ' and ' + str(int(f)) + '/' + str(int(y)) + '.')
-                else:
-                    if intdetector(sol2):
-                        print('The answers are ' + str(int(d)) + '/' + str(int(y)) + ' and ' + str(int(sol2)) + '.')
-                    else:
-                        print('The answers are ' + str(int(d)) + '/' + str(int(y)) + ' and ' + str(int(f)) + '/' + str(int(y)) + '.')
+        if a == '' or b == '' or c == '':
+            print('You must fill all variables.')
         else:
-            print('The answer involves a square root with a float result.')
+            a = int(a)
+            b = int(b)
+            c = int(c)
+
+            if a == 0:
+                if b == 0:
+                    print('There is no solution.')
+                elif c == 0:
+                    print('The answer is 0.')
+                else:
+                    x2 = (-1) * c
+                    y2 = x2 / b
+                    print('The solution is ' + str(fractions.Fraction(y2)) + '.')
+            elif b == 0:
+                if c == 0:
+                    print('The answer is double 0.')
+                else:
+                    x3 = (-1) * c
+                    y3 = x3 / a
+                    z3 = math.sqrt(y3)
+                    print('The answers are ' + str(fractions.Fraction(z3)) + ' and -' + str(fractions.Fraction(z3)) + '.')
+            elif c == 0:
+                x4 = (-1) * b
+                y4 = x4 / a
+                print('The answers are 0 and ' + str(fractions.Fraction(y4)) + '.')
+            else:
+                x = (-4) * a * c
+                y = 2 * a
+                z = (-1) * b
+                u = b ** 2
+                n = u + x
+                m = math.sqrt(n)
+    
+                d = z + m
+                f = z - m
+    
+                sol1 = d / y
+                sol2 = f / y
+
+                if int(m) == m:
+                    if sol1 == sol2:
+                        print('The answer is double ' + str(fraction.Fraction(sol1)) + '.')
+                    else:
+                        print('The answers are ' + str(fractions.Fraction(sol1)) + ' and ' + str(fractions.Fraction(sol2)) + '.')
+                else:
+                    print('The answers are ' + str(z) + ' + square root of ' + str(n) + '/' + str(y) + ' and ' + str(z) + ' - square root of ' + str(n) + '/' + str(y) +'.')
+            
+            
     except ValueError:
         print('The answer is an imaginary number.')
     except:
